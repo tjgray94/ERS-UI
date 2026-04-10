@@ -1,0 +1,52 @@
+<div class="details-container">
+  <div class="details-card">
+    <div class="details-header">
+      Employee Profile
+    </div>
+    
+    <div class="details-body">
+      <div class="employee-name">
+        {{ currentEmployee.col1fName }} {{ currentEmployee.col2lName }}
+      </div>
+      
+      <div class="detail-section">
+        <span class="section-label">Personal Information</span>
+        <div class="section-value">
+          <strong>First Name:</strong> {{ currentEmployee.col1fName }}
+        </div>
+        <div class="section-value">
+          <strong>Last Name:</strong> {{ currentEmployee.col2lName }}
+        </div>
+      </div>
+      
+      <div class="detail-section">
+        <span class="section-label">Account Information</span>
+        <div class="section-value">
+          <strong>Username:</strong> {{ currentEmployee.col3username }}
+        </div>
+        <div class="password-section">
+          <strong>Password:</strong>
+          <input [type]="showPassword ? 'text' : 'password'" class="password-input" [value]="currentEmployee.col4password" readonly>
+          <button type="button" class="toggle-password" (click)="togglePassword()">
+            {{ showPassword ? 'HIDE PASSWORD' : 'SHOW PASSWORD' }}
+          </button>
+        </div>
+      </div>
+      
+      <div class="detail-section">
+        <span class="section-label">Position</span>
+        <div>
+          <span class="employee-title" [ngClass]="{'title-manager': currentEmployee.col5title === 'MANAGER', 'title-employee': currentEmployee.col5title === 'EMPLOYEE'}">
+            {{ currentEmployee.col5title }}
+          </span>
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button class="btn btn-delete" (click)="deleteEmployee()">DELETE EMPLOYEE</button>
+        <button class="btn btn-update" (click)="updateEmployee()">UPDATE DETAILS</button>
+        <button class="btn btn-primary" (click)="goBack()">BACK</button>
+      </div>
+    </div>
+  </div>
+</div>

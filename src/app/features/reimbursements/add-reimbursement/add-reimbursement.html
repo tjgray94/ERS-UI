@@ -1,0 +1,68 @@
+<div class="reimb-container">
+  <div class="reimb-card">
+    <div class="reimb-header">
+      Reimbursement Request
+    </div>
+    <div class="reimb-body">
+      @if (!submitted) {
+        <div>
+          <form [formGroup]="reimbForm" (ngSubmit)="saveReimb()">
+            <div class="form-group">
+              <label class="form-label">EMPLOYEE ID</label>
+              <div class="employee-id">{{id}}</div>
+            </div>
+            
+            <div class="form-group">
+              <label for="col2amount" class="form-label">AMOUNT</label>
+              <div class="currency-input">
+                <input type="number" class="form-control" id="col2amount" formControlName="col2amount" placeholder="0.00" step="0.01" min="0.01"/>
+              </div>
+              @if ((f['col2amount'].touched || submitted) && f['col2amount'].errors) {
+                <div class="error-message">
+                  @if (f['col2amount'].errors && f['col2amount'].errors['required']) {
+                    <div>Amount is required</div>
+                  }
+                  @if (f['col2amount'].errors && f['col2amount'].errors['min']) {
+                    <div>Amount must be greater than 0</div>
+                  }
+                </div>
+              }
+            </div>
+            
+            <div class="form-group">
+              <label for="col3reason" class="form-label">REASON FOR REQUEST</label>
+              <input type="text" class="form-control" id="col3reason" formControlName="col3reason" placeholder="Enter reason for reimbursement"/>    
+              @if ((f['col3reason'].touched || submitted) && f['col3reason'].errors) {
+                <div class="error-message">
+                  @if (f['col3reason'].errors && f['col3reason'].errors['required']) {
+                    <div>Reason is required</div>
+                  }
+                  @if (f['col3reason'].errors && f['col3reason'].errors['minlength']) {
+                    <div>Reason must be at least 5 characters</div>
+                  }
+                </div>
+              }
+            </div>
+            
+            <div class="button-group">
+              <button type="submit" class="btn btn-primary" [disabled]="reimbForm.invalid">SUBMIT REQUEST</button>
+              <button type="button" (click)="goBack()" class="btn btn-secondary">CANCEL</button>
+            </div>
+          </form>
+        </div>
+      }
+      
+      @if (submitted) {
+        <div class="success-message">
+          <div class="success-icon">✓</div>
+          <h3>Request Submitted Successfully</h3>
+          <p>Your reimbursement request has been submitted for approval.</p>
+          <div class="button-group">
+            <button class="btn btn-primary" (click)="newReimb()">SUBMIT ANOTHER</button>
+            <button class="btn btn-secondary" (click)="home()">RETURN TO DASHBOARD</button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

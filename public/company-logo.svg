@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="50px" viewBox="0 0 200 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g fill="#FFFFFF">
+            <path d="M20,10 L30,10 L30,40 L20,40 L20,10 Z M10,20 L40,20 L40,30 L10,30 L10,20 Z" fill-rule="nonzero"></path>
+            <path d="M60,15 L70,15 L70,35 L60,35 L60,15 Z M50,25 L80,25 L80,35 L50,35 L50,25 Z" fill-rule="nonzero"></path>
+            <path d="M90,10 L110,10 L110,15 L90,15 L90,10 Z M90,20 L110,20 L110,25 L90,25 L90,20 Z M90,30 L110,30 L110,35 L90,35 L90,30 Z M90,40 L110,40 L110,45 L90,45 L90,40 Z" fill-rule="nonzero"></path>
+            <path d="M130,10 C136.627,10 142,15.373 142,22 C142,28.627 136.627,34 130,34 C123.373,34 118,28.627 118,22 C118,15.373 123.373,10 130,10 Z M130,16 C126.686,16 124,18.686 124,22 C124,25.314 126.686,28 130,28 C133.314,28 136,25.314 136,22 C136,18.686 133.314,16 130,16 Z" fill-rule="nonzero"></path>
+            <path d="M150,10 L160,10 L170,25 L170,10 L180,10 L180,40 L170,40 L160,25 L160,40 L150,40 L150,10 Z" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

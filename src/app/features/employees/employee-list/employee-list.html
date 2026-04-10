@@ -1,0 +1,59 @@
+<div class="employee-list-container">
+  <div class="page-header">
+    <h1 class="page-title">Employee Directory</h1>
+  </div>
+
+  <div class="employee-card">
+    <div class="card-header">
+      <h4>Employee Records</h4>
+    </div>
+    <div class="card-body">
+      @if (employees && employees.length > 0) {
+        <table class="employee-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Title</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (employee of employees; track employee) {
+              <tr>
+                <td class="employee-id">{{employee.empId}}</td>
+                <td class="employee-name">{{employee.col1fName}} {{employee.col2lName}}</td>
+                <td>{{employee.col3username}}</td>
+                <td>
+                  <span class="employee-title" [ngClass]="{'manager': employee.col5title === 'MANAGER', 'employee': employee.col5title === 'EMPLOYEE'}">
+                    {{employee.col5title}}
+                  </span>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <button type="button" (click)="gotoDetails(employee)" class="btn btn-view">View Details</button>
+                    <button type="button" (click)="delete(employee.empId)" class="btn btn-delete">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+      
+      @if (!employees || employees.length === 0) {
+        <div class="empty-state">
+          <div class="empty-state-icon">👥</div>
+          <div class="empty-state-message">No employees found</div>
+          <div class="empty-state-description">There are no employees in the system yet.</div>
+        </div>
+      }
+      
+      <div class="footer-actions">
+        <button class="btn btn-secondary" (click)="goBack()">Back to Dashboard</button>
+        <button class="btn btn-danger" (click)="removeAllEmployees()">Remove All Employees</button>
+      </div>
+    </div>
+  </div>
+</div>

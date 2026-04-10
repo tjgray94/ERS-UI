@@ -1,0 +1,184 @@
+.employee-list-container {
+  padding: 40px 20px;
+  background-color: #f5f7fa;
+  min-height: calc(100vh - 60px);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.employee-card {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.card-header {
+  background-color: #0a3d62;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card-header h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.employee-table th {
+  background-color: #f1f5f9;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.employee-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.employee-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.employee-table tr:last-child td {
+  border-bottom: none;
+}
+
+.employee-id {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.employee-name {
+  font-weight: 500;
+}
+
+.employee-title {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.employee-title.manager {
+  background-color: #ebf4ff;
+  color: #3182ce;
+}
+
+.employee-title.employee {
+  background-color: #e6fffa;
+  color: #319795;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-view {
+  background-color: #0a3d62;
+  color: white;
+}
+
+.btn-view:hover {
+  background-color: #0c4b78;
+}
+
+.btn-delete {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c53030;
+}
+
+.footer-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-secondary {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.btn-secondary:hover {
+  background-color: #cbd5e0;
+}
+
+.btn-danger {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c53030;
+}
+
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  color: #718096;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #a0aec0;
+}
+
+.empty-state-message {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.empty-state-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,185 @@
+.reimb-list-container {
+  padding: 40px 20px;
+  background-color: #f5f7fa;
+  min-height: calc(100vh - 60px);
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.reimb-card {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.card-header {
+  background-color: #0a3d62;
+  color: white;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.reimb-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reimb-table th {
+  background-color: #f1f5f9;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.reimb-table td {
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #2d3748;
+  font-size: 14px;
+}
+
+.reimb-table tr {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.reimb-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.reimb-table tr.active {
+  background-color: #ebf8ff;
+}
+
+.reimb-table tr:last-child td {
+  border-bottom: none;
+}
+
+.reimb-id {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.reimb-amount {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background-color: #fefcbf;
+  color: #975a16;
+}
+
+.status-approved {
+  background-color: #c6f6d5;
+  color: #2f855a;
+}
+
+.status-denied {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+.action-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  background-color: #0a3d62;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.action-button:hover {
+  background-color: #0c4b78;
+}
+
+.footer-actions {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #0a3d62;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0c4b78;
+}
+
+.empty-state {
+  padding: 40px;
+  text-align: center;
+  color: #718096;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #a0aec0;
+}
+
+.empty-state-message {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.empty-state-description {
+  font-size: 14px;
+  margin-bottom: 20px;
+}

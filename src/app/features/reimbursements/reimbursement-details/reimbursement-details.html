@@ -1,0 +1,48 @@
+<div class="details-container">
+  <div class="details-card">
+    <div class="details-header">
+      Reimbursement Request Details
+    </div>
+    <div class="details-body">
+      <form>
+        <div class="detail-section">
+          <span class="section-label">Employee ID</span>
+          <div class="section-value">{{reimbursement.empId}}</div>
+        </div>
+        
+        <div class="detail-section">
+          <span class="section-label">Request Information</span>
+          <div class="amount-value">{{reimbursement.col2amount | currency}}</div>
+          <div class="reason-value">{{reimbursement.col3reason}}</div>
+        </div>
+        
+        <div class="status-section">
+          <span class="section-label">Request Status</span>
+          
+          @if (reimbursement.col4status === 'Accepted' || reimbursement.col4status === 'Rejected') {
+            <div>
+              <span class="status-badge" 
+                    [ngClass]="{'status-accepted': reimbursement.col4status === 'Accepted', 
+                               'status-rejected': reimbursement.col4status === 'Rejected'}">
+                {{reimbursement.col4status}}
+              </span>
+            </div>
+          }
+          
+          <div>
+            <select class="form-control" id="col4status" [(ngModel)]="reimbursement.col4status" name="col4status" style="height: auto; padding: 10px;">
+              <option value="Pending">Pending</option>
+              <option value="Accepted">Accept</option>
+              <option value="Rejected">Reject</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button class="btn btn-primary" (click)="submit()">UPDATE STATUS</button>
+          <button class="btn btn-secondary" (click)="back()">RETURN TO LIST</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

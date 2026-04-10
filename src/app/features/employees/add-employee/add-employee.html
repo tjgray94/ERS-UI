@@ -1,0 +1,131 @@
+<div class="employee-container">
+  <div class="employee-card">
+    <div class="employee-header">
+      Employee Registration
+    </div>
+    <div class="employee-body">
+      @if (!submitted) {
+        <div>
+          <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+            @if (errorMessage) {
+              <div class="error-message">
+                {{ errorMessage }}
+              </div>
+            }
+            <div class="form-group">
+              <label for="col1fName" class="form-label">FIRST NAME</label>
+              <input type="text" class="form-control" id="col1fName" formControlName="col1fName"/>
+              @if ((f['col1fName'].touched || submitted) && f['col1fName'].errors) {
+                <div class="error-message">
+                  @if (f['col1fName'].errors && f['col1fName'].errors['required']) {
+                    <div>First name is required</div>
+                  }
+                  @if (f['col1fName'].errors && f['col1fName'].errors['minlength']) {
+                    <div>First name must be at least 2 characters</div>
+                  }
+                </div>
+              }
+            </div>
+            
+            <div class="form-group">
+              <label for="col2lName" class="form-label">LAST NAME</label>
+              <input type="text" class="form-control" id="col2lName" formControlName="col2lName"/>    
+              @if ((f['col2lName'].touched || submitted) && f['col2lName'].errors) {
+                <div class="error-message">
+                  @if (f['col2lName'].errors && f['col2lName'].errors['required']) {
+                    <div>Last name is required</div>
+                  }
+                  @if (f['col2lName'].errors && f['col2lName'].errors['minlength']) {
+                    <div>Last name must be at least 2 characters</div>
+                  }
+                </div>
+              }
+            </div>
+            
+            <div class="form-group">
+              <label for="col3username" class="form-label">USERNAME</label>
+              <input type="text" class="form-control" id="col3username" formControlName="col3username"/>    
+              @if ((f['col3username'].touched || submitted) && f['col3username'].errors) {
+                <div class="error-message">
+                  @if (f['col3username'].errors && f['col3username'].errors['required']) {
+                    <div>Username is required</div>
+                  }
+                  @if (f['col3username'].errors && f['col3username'].errors['minlength']) {
+                    <div>Username must be at least 6 characters</div>
+                  }
+                </div>
+              }
+            </div>
+            
+            <div class="form-group">
+              <label for="col4password" class="form-label">PASSWORD</label>
+              <input type="password" class="form-control" id="col4password" formControlName="col4password" (input)="checkPasswordMatch()"/>    
+              @if ((f['col4password'].touched || submitted) && f['col4password'].errors) {
+                <div class="error-message">
+                  @if (f['col4password'].errors && f['col4password'].errors['required']) {
+                    <div>Password is required</div>
+                  }
+                  @if (f['col4password'].errors && f['col4password'].errors['minlength']) {  
+                    <div>Password must be at least 8 characters</div>
+                  }
+                </div>
+              }
+            </div>
+            
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label">CONFIRM PASSWORD</label>
+              <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword" (input)="checkPasswordMatch()"/>    
+              @if ((f['confirmPassword'].touched || submitted) && f['confirmPassword'].errors) {
+                <div class="error-message">
+                  @if (f['confirmPassword'].errors && f['confirmPassword'].errors['required']) {
+                    <div>Please confirm your password</div>
+                  }
+                </div>
+              }
+              @if ((f['confirmPassword'].touched || submitted) && passwordMismatch) {
+                <div class="error-message">
+                  Passwords do not match
+                </div>
+              }
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">POSITION</label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="employee-option" formControlName="col5title" value="EMPLOYEE" />
+                  <label for="employee-option">Employee</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="manager-option" formControlName="col5title" value="MANAGER" />
+                  <label for="manager-option">Manager</label>
+                </div>
+              </div>
+              @if ((f['col5title'].touched || submitted) && f['col5title'].errors) {
+                <div class="error-message">
+                  @if (f['col5title'].errors && f['col5title'].errors['required']) {
+                    <div>Please select a position</div>
+                  }
+                </div>
+              }
+            </div>
+            
+            <div class="button-group">
+              <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid || passwordMismatch">REGISTER</button>
+              <button type="button" (click)="goBack()" class="btn btn-secondary">CANCEL</button>
+            </div>
+          </form>
+        </div>
+      }
+      
+      @if (submitted) {
+        <div class="success-message">
+          <div class="success-icon">✓</div>
+          <h3>Employee Registration Successful</h3>
+          <p>The new employee account has been created in the system.</p>
+          <button class="btn btn-primary" (click)="newEmployee()">REGISTER ANOTHER</button>
+        </div>
+      }
+    </div>
+  </div>
+</div>

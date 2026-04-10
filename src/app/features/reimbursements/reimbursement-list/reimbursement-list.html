@@ -1,0 +1,111 @@
+<div class="reimb-list-container">
+  <div class="page-header">
+    <h1 class="page-title" *ngIf="jobTitle === 'manager'">Reimbursement Requests</h1>
+    <h1 class="page-title" *ngIf="jobTitle === 'employee'">My Reimbursement Requests</h1>
+  </div>
+
+  <div class="reimb-card">
+    <div class="card-header">
+      @if (jobTitle === 'manager') {
+        <h2>All Pending Requests</h2>
+      }
+      @if (jobTitle === 'employee') {
+        <h2>Request History</h2>
+      }
+    </div>
+    
+    <!-- Manager View -->
+    @if (jobTitle === 'manager') {
+      <div class="card-body">
+        @if (reimbs && reimbs.length > 0) {
+          <table class="reimb-table">
+            <thead>
+              <tr>
+                <th>Request ID</th>
+                <th>Employee ID</th>
+                <th>Amount</th>
+                <th>Reason</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (reimb of reimbs; track reimb) {
+                <tr [class.active]="reimb === reimbs[currentIndex]" (click)="setActiveReimb(reimb, reimbs.indexOf(reimb))">
+                  <td class="reimb-id">{{reimb.reimbId}}</td>
+                  <td>{{reimb?.empId}}</td>
+                  <td class="reimb-amount">{{reimb.col2amount | currency}}</td>
+                  <td>{{reimb.col3reason}}</td>
+                  <td>
+                    <span class="status-badge"
+                      [ngClass]="{'status-pending': reimb.col4status === 'Pending',
+                                  'status-approved': reimb.col4status === 'Approved',
+                                  'status-denied': reimb.col4status === 'Denied'}">
+                      {{reimb.col4status}}
+                    </span>
+                  </td>
+                  <td>
+                    <a [routerLink]="[reimb.reimbId]" class="action-button">Review</a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        }
+        
+        @if (!reimbs || reimbs.length === 0) {
+          <div class="empty-state">
+            <div class="empty-state-icon">📋</div>
+            <div class="empty-state-message">No reimbursement requests found</div>
+            <div class="empty-state-description">There are no pending reimbursement requests to review.</div>
+          </div>
+        }
+      </div>
+    }
+    
+    <!-- Employee View -->
+    @if (jobTitle === 'employee') {
+      <div class="card-body">
+        <table class="reimb-table" *ngIf="reimbs && reimbs.length > 0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Amount</th>
+              <th>Reason</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let reimb of reimbs; let i = index" 
+                [class.active]="i == currentIndex" 
+                (click)="setActiveReimb(reimb, i)">
+              <td class="reimb-id">{{reimb.reimbId}}</td>
+              <td class="reimb-amount">{{reimb.col2amount | currency}}</td>
+              <td>{{reimb.col3reason}}</td>
+              <td>
+                <span class="status-badge" 
+                      [ngClass]="{'status-pending': reimb.col4status === 'Pending', 
+                                 'status-approved': reimb.col4status === 'Approved', 
+                                 'status-denied': reimb.col4status === 'Denied'}">
+                  {{reimb.col4status}}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        @if (!reimbs || reimbs.length === 0) {
+          <div class="empty-state">
+            <div class="empty-state-icon">📋</div>
+            <div class="empty-state-message">No reimbursement requests found</div>
+            <div class="empty-state-description">You haven't submitted any reimbursement requests yet.</div>
+          </div>
+        }
+      </div>
+    }
+    
+    <div class="footer-actions">
+      <button (click)="goBack()" class="btn btn-primary">Back to Dashboard</button>
+    </div>
+  </div>
+</div>

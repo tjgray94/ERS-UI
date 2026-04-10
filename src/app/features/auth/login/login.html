@@ -1,0 +1,45 @@
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-card">
+    <div class="login-header">
+      <img src="company-logo.svg" alt="Company Logo" class="company-logo">
+      <h1 class="header-title">Employee Reimbursement System</h1>
+      <p class="header-subtitle">Secure Enterprise Portal</p>
+    </div>
+    
+    <div class="login-body">
+      @if (loginError) {
+        <div class="error-alert">
+          <strong>Authentication Error:</strong> {{ loginError }}
+        </div>
+      }
+      
+      <div class="form-group">
+        <label for="username" class="form-label">USERNAME</label>
+        <input type="text" id="username" class="form-control" formControlName="username" required>
+        @if (loginForm.controls['username'].touched && loginForm.controls['username'].hasError('required', 'username')) {
+          <div class="error-message">
+            Please enter your username to continue
+          </div>
+        }
+      </div>
+      
+      <div class="form-group">
+        <label for="password" class="form-label">PASSWORD</label>
+        <input type="password" id="password" class="form-control" formControlName="password" required>
+        @if (loginForm.controls['password'].touched && loginForm.controls['password'].hasError('required', 'password')) {
+          <div class="error-message">
+            Please enter your password to continue
+          </div>
+        }
+      </div>
+      
+      <button type="submit" class="login-btn" [disabled]="loginForm.invalid">ACCESS PORTAL</button>
+    </div>
+    
+    <div class="login-footer">
+      <div class="signup-link">
+        New employee? <a routerLink="/employees/add">Request System Access</a>
+      </div>
+    </div>
+  </form>
+</div>

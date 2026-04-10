@@ -1,0 +1,44 @@
+<div class="dashboard-container">
+  <div class="welcome-header">
+    <h1 class="welcome-title">Welcome, {{ fName }}</h1>
+    <p class="welcome-subtitle">Management Dashboard</p>
+  </div>
+
+  <div class="dashboard-cards">
+    <div class="dashboard-card">
+      <div class="card-icon">👥</div>
+      <h2 class="card-title">Employee Directory</h2>
+      <p class="card-description">View and manage all employees in the system</p>
+      <button class="card-button" (click)="viewEmployees()">VIEW EMPLOYEES</button>
+    </div>
+
+    <div class="dashboard-card">
+      <div class="card-icon">➕</div>
+      <h2 class="card-title">Add Employee</h2>
+      <p class="card-description">Register a new employee in the system</p>
+      <button class="card-button danger" (click)="newEmployee()">ADD EMPLOYEE</button>
+    </div>
+
+    <div class="dashboard-card">
+      <div class="card-icon">📊</div>
+      <h2 class="card-title">Reimbursement Requests</h2>
+      <p class="card-description">Review and manage all reimbursement requests</p>
+      <button class="card-button secondary" (click)="allReimbursements()">VIEW REQUESTS</button>
+    </div>
+  </div>
+
+  <div class="quick-stats">
+    <div class="stat-card">
+      <div class="stat-value">{{ totalEmployees || 0 }}</div>
+      <div class="stat-label">Total Employees</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">{{ pendingRequests || 0 }}</div>
+      <div class="stat-label">Pending Requests</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">${{ totalReimbursed || 0 }}</div>
+      <div class="stat-label">Total Reimbursed</div>
+    </div>
+  </div>
+</div>
